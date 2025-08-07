@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  spa:
+    build:
+      context: .
+      dockerfile: Dockerfile.spa
+    container_name: ttk-jwt-spa
+    ports:
+      - "9000:8080"
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ttk-jwt-api
+    command: uvicorn token_api:app --host 0.0.0.0 --port 8000
+    ports:
+      - "9080:8000"
+    restart: unless-stopped

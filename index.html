@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TTK API Utility</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar-nav">
+      <ul>
+        <li class="nav-item active" data-form="jwt">Generate Token</li>
+        <li class="nav-item" data-form="traveller">Create Traveller</li>
+        <li class="nav-item" data-form="assign">Assign User</li>
+      </ul>
+    </nav>
+    <div class="main-content">
+      <div class="form-section" id="jwt-section">
+        <div class="card form-card" id="jwt-card">
+          <h2>Generate TTK Token</h2>
+          <form id="jwt-form">
+            <div class="form-group">
+              <label for="userId">User ID<span class="required">*</span></label>
+              <input type="text" id="userId" name="userId" required value="U001">
+            </div>
+            <div class="form-group">
+              <label for="accessType">Access Type</label>
+              <select id="accessType" name="accessType">
+                <option value="client">client</option>
+                <option value="maker">maker</option>
+                <option value="checker">checker</option>
+                <option value="admin">admin</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" value="Debasish Client">
+            </div>
+            <div class="form-group">
+              <label for="orderId">Order ID</label>
+              <input type="text" id="orderId" name="orderId" value="RVIS-03072025-001">
+            </div>
+            <button type="submit" class="mdc-button">Generate TTK Token</button>
+          </form>
+        </div>
+        <div class="card form-card" id="get-token-card">
+          <h2>Get LYIK Token</h2>
+          <form id="get-token-form">
+            <div class="form-group">
+              <label for="apiToken">Token<span class="required">*</span></label>
+              <input type="text" id="apiToken" name="apiToken" required placeholder="Paste JWT token here">
+            </div>
+            <button type="submit" class="mdc-button">Get LYIK Token</button>
+          </form>
+        </div>
+      </div>
+      <div class="form-section" id="traveller-section" style="display:none;">
+        <div class="card form-card" id="create-traveller-card">
+          <h2>Create Traveller</h2>
+          <form id="create-traveller-form">
+            <div class="form-group">
+              <label for="travellerToken">Token<span class="required">*</span></label>
+              <input type="text" id="travellerToken" name="travellerToken" required placeholder="Paste JWT token here">
+            </div>
+            <div class="form-group">
+              <label for="formUri">Form URI<span class="required">*</span></label>
+              <input type="text" id="formUri" name="formUri" required placeholder="Enter form URI">
+            </div>
+            <div class="form-group">
+              <label for="travellerAction">Action<span class="required">*</span></label>
+              <select id="travellerAction" name="travellerAction" required>
+                <option value="SAVE">SAVE</option>
+                <option value="SUBMIT">SUBMIT</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="travellerType">Traveller Type</label>
+              <select id="travellerType" name="travellerType">
+                <option value="Primary">Primary</option>
+                <option value="Co-traveller">Co-traveller</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="travellerOrderId">Order ID</label>
+              <input type="text" id="travellerOrderId" name="travellerOrderId" value="RVIS-03072025-001">
+            </div>
+            <div class="form-group">
+              <label for="travellerId">Traveller ID</label>
+              <input type="text" id="travellerId" name="travellerId" value="TRAVELLER-1">
+            </div>
+            <div class="form-group">
+              <label for="visaProcessingType">Visa Processing Type</label>
+              <input type="text" id="visaProcessingType" name="visaProcessingType" value="Normal">
+            </div>
+            <div class="form-group">
+              <label for="noOfEntries">No of Entries</label>
+              <select id="noOfEntries" name="noOfEntries">
+                <option value="Single">Single</option>
+                <option value="Two">Two</option>
+                <option value="Multiple">Multiple</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="noOfTravellers">No of Travellers</label>
+              <input type="number" id="noOfTravellers" name="noOfTravellers" value="2">
+            </div>
+            <div class="form-group">
+              <label for="fromCountry">From Country</label>
+              <input type="text" id="fromCountry" name="fromCountry" value="IND">
+            </div>
+            <div class="form-group">
+              <label for="toCountry">To Country</label>
+              <input type="text" id="toCountry" name="toCountry" value="CHE">
+            </div>
+            <div class="form-group">
+              <label for="arrivalDate">Arrival Date</label>
+              <input type="date" id="arrivalDate" name="arrivalDate" value="2025-08-22">
+            </div>
+            <div class="form-group">
+              <label for="departureDate">Departure Date</label>
+              <input type="date" id="departureDate" name="departureDate" value="2025-08-27">
+            </div>
+            <div class="form-group">
+              <label for="lengthOfStay">Length of Stay</label>
+              <input type="number" id="lengthOfStay" name="lengthOfStay" value="1">
+            </div>
+            <div class="form-group">
+              <label for="validity">Validity</label>
+              <input type="number" id="validity" name="validity" value="30">
+            </div>
+            <div class="form-group">
+              <label for="visaType">Visa Type</label>
+              <select id="visaType" name="visaType">
+                <option value="Tourist">Tourist</option>
+                <option value="Business">Business</option>
+                <option value="Work">Work</option>
+                <option value="Dependent">Dependent</option>
+                <option value="Visitor">Visitor</option>
+                <option value="Student">Student</option>
+                <option value="Sports">Sports</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="visaMode">Visa Mode</label>
+              <select id="visaMode" name="visaMode">
+                <option value="E-Visa">E-Visa</option>
+                <option value="Paper">Paper</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number</label>
+              <input type="text" id="phoneNumber" name="phoneNumber" value="+919900652507">
+            </div>
+            <div class="form-group">
+              <label for="emailId">Email ID</label>
+              <input type="email" id="emailId" name="emailId" value="vijetha.a@ttkservices.com">
+            </div>
+            <button type="submit" class="mdc-button">Create Traveller</button>
+          </form>
+        </div>
+      </div>
+      <div class="form-section" id="assign-section" style="display:none;">
+        <div class="card form-card" id="assign-user-card">
+          <h2>Assign User</h2>
+          <form id="assign-user-form">
+            <div class="form-group">
+              <label for="assignToken">Admin Token<span class="required">*</span></label>
+              <input type="text" id="assignToken" name="assignToken" required placeholder="Paste Admin JWT token here">
+            </div>
+            <div class="form-group">
+              <label for="assignFormUri">Form URI<span class="required">*</span></label>
+              <input type="text" id="assignFormUri" name="assignFormUri" required placeholder="Enter form URI">
+            </div>
+            <div class="form-group">
+              <label for="assignMode">Mode<span class="required">*</span></label>
+              <select id="assignMode" name="assignMode" required>
+                <option value="Add">Add</option>
+                <option value="Remove">Remove</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="assignRecordId">Record ID<span class="required">*</span></label>
+              <input type="number" id="assignRecordId" name="assignRecordId" required>
+            </div>
+            <div class="form-group">
+              <label for="assignUserId">User ID<span class="required">*</span></label>
+              <input type="text" id="assignUserId" name="assignUserId" required>
+            </div>
+            <button type="submit" class="mdc-button">Assign User</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="output-panel" id="output-panel">
+      <div class="output-header">Output</div>
+      <pre id="output-content" class="output-content" readonly></pre>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jsrsasign@10.8.7/lib/jsrsasign-all-min.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // Navigation logic for switching forms
+    document.addEventListener('DOMContentLoaded', function() {
+      const navItems = document.querySelectorAll('.nav-item');
+      const jwtSection = document.getElementById('jwt-section');
+      const travellerSection = document.getElementById('traveller-section');
+      const assignSection = document.getElementById('assign-section');
+      navItems.forEach(item => {
+        item.addEventListener('click', function() {
+          navItems.forEach(i => i.classList.remove('active'));
+          this.classList.add('active');
+          if (this.dataset.form === 'jwt') {
+            jwtSection.style.display = '';
+            travellerSection.style.display = 'none';
+            assignSection.style.display = 'none';
+          } else if (this.dataset.form === 'traveller') {
+            jwtSection.style.display = 'none';
+            travellerSection.style.display = '';
+            assignSection.style.display = 'none';
+          } else if (this.dataset.form === 'assign') {
+            jwtSection.style.display = 'none';
+            travellerSection.style.display = 'none';
+            assignSection.style.display = '';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
