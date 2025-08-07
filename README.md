@@ -1,4 +1,4 @@
-# TTK JWT SPA
+# TTK UTILITY FOR DEVELOPERS AND TESTERS
 
 ## Run with Docker Compose
 
